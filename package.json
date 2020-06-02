@@ -1,5 +1,5 @@
 {
-  "name": "anydoor",
+  "name": "anydoor_jonzhong",
   "version": "1.0.0",
   "description": "tiny node web server",
   "main": "src/app.js",
