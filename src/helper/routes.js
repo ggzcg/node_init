@@ -50,16 +50,46 @@ module.exports = async function(req, res, filepath, config) {
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'text/html');
                 const dir = path.relative(config.root, filepath)
+                let ext_html = [];
+                let ext_js = [];
+                let ext_css = [];
+                let ext_else = [];
+                files.map(item=>{
+                    if(item.match(/\.(html)/)) {
+                        ext_html.push({files:item,icon: mime(item)})
+                    } else if(item.match(/\.(js|json)/)) {
+                        ext_js.push({files:item,icon: mime(item)})
+                    } else if(item.match(/\.(css)/)) {
+                        ext_css.push({files:item,icon: mime(item)})
+                    } else {
+                        ext_else.push({files:item,icon: mime(item)})
+                    }
+                })
+                var files = files.map(item=>{
+                    return {
+                        files:item,
+                        icon: mime(item)
+                    }
+                })
+                console.log(files)
                 const data = {
                     title: path.basename(filepath), 
                     dir: dir?`/${dir}`:'',
-                    files: files.map(item=>{
-                        return {
-                            files:item,
-                            icon: mime(item)
-                        }
-                    })
+                    ext_else,
+                    ext_html,
+                    ext_js,
+                    ext_css
                 }
+                // const data = {
+                //     title: path.basename(filepath), 
+                //     dir: dir?`/${dir}`:'',
+                //     files: files.map(item=>{
+                //         return {
+                //             files:item,
+                //             icon: mime(item)
+                //         }
+                //     })
+                // }
                 res.end(template(data))
                 // res.end(filepath.join(','))
             })
