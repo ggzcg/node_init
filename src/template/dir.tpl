@@ -60,7 +60,7 @@
 <body>
 	<div class="headertitle">
 		<h2>你的静态文件</h2>
-		<p>jonzhong·晨</p>
+		<p>jonzhong·晨光</p>
 	</div>
 	<div class="filesCon clearfix">
 		{{#if ext_else}}

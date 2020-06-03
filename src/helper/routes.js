@@ -34,10 +34,10 @@ module.exports = async function(req, res, filepath, config) {
             const {code, start, end} = range(stats.size, req, res);
             if(code == 200) {
                 res.statusCode = 200;
-                rs = fs.createReadStream(filepath, {encoding:'utf8'});
+                rs = fs.createReadStream(filepath);
             } else {
                 res.statusCode = 206;
-                rs = fs.createReadStream(filepath, {start, end, encoding:'utf-8'});
+                rs = fs.createReadStream(filepath, {start, end});
             }
             // let rs = fs.createReadStream(filepath); // 如果用读取文件的形式获取数据会非常慢，所以用流
             if(filepath.match(config.compress)) {
@@ -71,7 +71,6 @@ module.exports = async function(req, res, filepath, config) {
                         icon: mime(item)
                     }
                 })
-                console.log(files)
                 const data = {
                     title: path.basename(filepath), 
                     dir: dir?`/${dir}`:'',
@@ -80,16 +79,6 @@ module.exports = async function(req, res, filepath, config) {
                     ext_js,
                     ext_css
                 }
-                // const data = {
-                //     title: path.basename(filepath), 
-                //     dir: dir?`/${dir}`:'',
-                //     files: files.map(item=>{
-                //         return {
-                //             files:item,
-                //             icon: mime(item)
-                //         }
-                //     })
-                // }
                 res.end(template(data))
                 // res.end(filepath.join(','))
             })

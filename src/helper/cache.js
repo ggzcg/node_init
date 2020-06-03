@@ -8,7 +8,7 @@ function refreshRes(stats, res) {
     }
     // 1.1 服务器返回--强缓存
     if(cacheControl) {
-        res.setHeader('cache-control', `puclic, max-age=${maxAge}`)
+        res.setHeader('Cache-control', `puclic, max-age=${maxAge}`)
     }
     // 1.0 服务器返回--协商缓存
     if(lastModified) {

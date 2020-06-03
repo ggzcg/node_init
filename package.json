@@ -1,6 +1,6 @@
 {
   "name": "jonzhong",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "tiny node web server",
   "main": "src/app.js",
   "bin": {
