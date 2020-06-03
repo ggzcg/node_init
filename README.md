@@ -1,23 +1,23 @@
-# anydoor
+# jonzhong
 
 Tiny NodeJs Static Web server
 
 ## 安装
 ```
-npm i -g anydoor_jonzhong
+npm i -g jonzhong
 ```
 
 ## 使用方法
 
 
 ```
-anydoor # 把当前文件夹作为静态资源服务器根目录
+jonzhong # 把当前文件夹作为静态资源服务器根目录
 
-anydoor -p 8080 # 设置端口号未 8080
+jonzhong -p 8080 # 设置端口号未 8080
 
-anydoor -h localhost # 设置 host 为 localhost
+jonzhong -h localhost # 设置 host 为 localhost
 
-anydoor -d /usr # 设置根目录为 /usr
+jonzhong -d /usr # 设置根目录为 /usr
 ```
 
 

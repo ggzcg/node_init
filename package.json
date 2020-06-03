@@ -1,10 +1,10 @@
 {
-  "name": "anydoor_jonzhong",
+  "name": "jonzhong",
   "version": "1.0.0",
   "description": "tiny node web server",
   "main": "src/app.js",
   "bin": {
-    "anydoor_jonzhong": "bin/anydoor"
+    "jonzhong": "bin/jonzhong"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
